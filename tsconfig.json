@@ -15,7 +15,17 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/atoms/*": ["./src/components/ui/atoms/*"],
+      "@/molecules/*": ["./src/components/ui/molecules/*"],
+      "@/organisms/*": ["./src/components/ui/organisms/*"],
+      "@/templates/*": ["./src/components/ui/templates/*"],
+      "@/data/*": ["./src/data/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/interfaces/*": ["./src/interfaces/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/styles/*": ["./src/styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
