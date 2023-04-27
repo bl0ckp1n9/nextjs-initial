@@ -36,9 +36,20 @@ const config = {
     config.resolve.alias['@/organisms'] = path.resolve(__dirname, 'src/components/ui/organisms')
     config.resolve.alias['@/templates'] = path.resolve(__dirname, 'src/components/ui/templates')
     config.resolve.alias['@/data'] = path.resolve(__dirname, 'src/data')
-    config.resolve.alias['@/interfaces'] = path.resolve(__dirname, 'src/interfaces')
+    config.resolve.alias['@/types'] = path.resolve(__dirname, 'src/types')
     config.resolve.alias['@/context'] = path.resolve(__dirname, 'src/context')
     return config
+  },
+  babel: async (options) => {
+    return {
+      ...options,
+      plugins: [
+        ...options.plugins,
+        'babel-plugin-twin',
+        'babel-plugin-macros',
+        'babel-plugin-styled-components'
+      ]
+    }
   }
 }
 export default config
