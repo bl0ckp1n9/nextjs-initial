@@ -37,7 +37,7 @@ const config = {
     config.resolve.alias['@/templates'] = path.resolve(__dirname, 'src/components/ui/templates')
     config.resolve.alias['@/data'] = path.resolve(__dirname, 'src/data')
     config.resolve.alias['@/types'] = path.resolve(__dirname, 'src/types')
-    config.resolve.alias['@/context'] = path.resolve(__dirname, 'src/context')
+    config.resolve.alias['@/context'] = path.resolve(__dirname, 'src/contexts')
     return config
   },
   babel: async (options) => {
