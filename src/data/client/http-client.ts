@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 import Router from 'next/router'
 
 const Axios = axios.create({
@@ -13,16 +12,8 @@ const Axios = axios.create({
 const AUTH_TOKEN_KEY = process.env.NEXT_PUBLIC_AUTH_TOKEN_KEY ?? ''
 
 Axios.interceptors.request.use((config) => {
-  const cookies = Cookies.get(AUTH_TOKEN_KEY)
-  let token = ''
-  if (cookies) {
-    token = JSON.parse(cookies)['token']
-  }
-
-  config.headers = {
-    ...config.headers,
-    Authorization: `Bearer ${token}`
-  }
+  const token = localStorage.getItem(AUTH_TOKEN_KEY)
+  config.headers.Authorization = `Bearer ${token}`
 
   return config
 })
@@ -36,7 +27,6 @@ Axios.interceptors.response.use(
       (error.response && error.response.status === 403) ||
       (error.response && error.response.data.message === 'PICKBAZAR_ERROR.NOT_AUTHORIZED')
     ) {
-      Cookies.remove(AUTH_TOKEN_KEY)
       Router.reload()
     }
 

@@ -1,6 +1,5 @@
 import { API_ENDPOINTS } from '@/data/client/api-endpoints'
 import { userClient } from '@/data/client/user'
-import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import { useMutation, useQueryClient } from 'react-query'
 
@@ -15,7 +14,7 @@ export const useLogoutMutation = () => {
 
   return useMutation(userClient.logout, {
     onSuccess: () => {
-      Cookies.remove('auth')
+      localStorage.removeItem('')
       router.replace(Routes.login)
     }
   })

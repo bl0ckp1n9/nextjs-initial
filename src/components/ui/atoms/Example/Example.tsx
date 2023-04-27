@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-const Button = styled.button<{ color: string; className: string }>`
+const Button = styled.button<{ color: string; className?: string }>`
   ${tw`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-100 rounded`}
   ${(props) =>
     props.color === 'primary' &&
